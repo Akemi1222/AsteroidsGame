@@ -16,11 +16,11 @@ public void draw() {
    if (key=='s'){spaceship.accelerate(-0.5);}
    if (key==' '){spaceship.hyperspace();}
   }
+  text("Center X: "+spaceship.myCenterX,25,30);
+  text("Center Y: "+spaceship.myCenterY,25,45);
+  text("Speed X: "+spaceship.myXspeed,25,60);
+  text("Speed Y: "+spaceship.myYspeed,25,75);
+  text("Direction: "+spaceship.myPointDirection,25,90);
   spaceship.move();
   spaceship.show();
-  text("Center X: "+String.format("%.1f",spaceship.myCenterX),25,30);
-  text("Center Y: "+String.format("%.1f",spaceship.myCenterY),25,45);
-  text("Speed X: "+String.format("%.1f",spaceship.myXspeed),25,60);
-  text("Speed Y: "+String.format("%.1f",spaceship.myYspeed),25,75);
-  text("Direction: "+String.format("%.1f",spaceship.myPointDirection),25,90);
 }
