@@ -11,9 +11,11 @@ public void draw() {
   background(0);
   noStroke();
   for (int i=0;i<star.length;i++){star[i].show();}
-  for (int i=0;i<10;i++){
+  for (int i=0;i<asteroid.size();i++){
     asteroid.get(i).move();
     asteroid.get(i).show();
+    float d=dist((float)spaceship.getCenterX(),(float)spaceship.getCenterY(),(float)asteroid.get(i).getCenterX(),(float)asteroid.get(i).getCenterY());
+    if (d<10){asteroid.remove(i);}
   }
   if (keyPressed){
    if (key=='a'){spaceship.turn(-10);}
