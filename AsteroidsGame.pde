@@ -15,7 +15,7 @@ public void draw() {
   for (int i=0;i<asteroid.size();i++){
     asteroid.get(i).move();
     asteroid.get(i).show();
-    float d=dist((float)spaceship.getCenterX(),(float)spaceship.getCenterY(),(float)asteroid.get(i).getCenterX(),(float)asteroid.get(i).getCenterY());
+    float d=dist((float)spaceship.getCenterX(),(float)spaceship.getCenterY(),(float)asteroid.get(i).getCenterX,(float)asteroid.get(i).getCenterY);
     if (d<10){
       delay(5000);
       spaceship.hyperspace();
