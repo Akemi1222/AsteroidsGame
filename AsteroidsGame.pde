@@ -1,6 +1,7 @@
 Spaceship spaceship=new Spaceship();
 Star[] star=new Star[100];
 ArrayList <Asteroid> asteroid=new ArrayList <Asteroid>();
+ArrayList <Bullet> bullet=new ArrayList <Bullet>();
 public void setup(){
   size(400,400);
   background(0);
@@ -15,14 +16,14 @@ public void draw() {
     asteroid.get(i).move();
     asteroid.get(i).show();
     float d=dist((float)spaceship.getCenterX(),(float)spaceship.getCenterY(),(float)asteroid.get(i).getCenterX(),(float)asteroid.get(i).getCenterY());
-    if (d<10){asteroid.remove(i);}
+    if (d<10){
+      delay(5000);
+      spaceship.hyperspace();
+    }
   }
-  if (keyPressed){
-   if (key=='a'){spaceship.turn(-10);}
-   if (key=='d'){spaceship.turn(10);}
-   if (key=='w'){spaceship.accelerate(0.5);}
-   if (key=='s'){spaceship.accelerate(-0.5);}
-   if (key==' '){spaceship.hyperspace();}
+  for (int i=0;i<bullet.size();i++){
+    bullet.get(i).move();
+    bullet.get(i).show();
   }
   color(255);
   text("Center X: "+spaceship.myCenterX,25,30);
@@ -32,4 +33,12 @@ public void draw() {
   text("Direction: "+spaceship.myPointDirection,25,90);
   spaceship.move();
   spaceship.show();
+}
+public void keyPressed(){
+   if (key=='a'){spaceship.turn(-10);}
+   if (key=='d'){spaceship.turn(10);}
+   if (key=='w'){spaceship.accelerate(0.5);}
+   if (key=='s'){spaceship.accelerate(-0.5);}
+   if (key==' '){spaceship.hyperspace();}
+   if (key=='b'){bullet.add(new Bullet(spaceship));}
 }
